@@ -4,19 +4,19 @@ const nock = require('nock');
 
 const daemons = [{
   'host': '127.0.0.1',
-  'port': '42069',
+  'port': '2332',
   'username': 'foundation',
   'password': 'foundation'
 }];
 
 const multiDaemons = [{
   'host': '127.0.0.1',
-  'port': '42069',
+  'port': '2332',
   'username': 'foundation',
   'password': 'foundation'
 }, {
   'host': '127.0.0.2',
-  'port': '42069',
+  'port': '2332',
   'username': 'foundation',
   'password': 'foundation'
 }];
@@ -42,7 +42,7 @@ describe('Test daemon functionality', () => {
   });
 
   test('Test daemon initialization [1]', (done) => {
-    nock('http://127.0.0.1:42069')
+    nock('http://127.0.0.1:2332')
       .post('/', (body) => body.method === 'getpeerinfo')
       .reply(200, JSON.stringify({
         error: null,
@@ -58,14 +58,14 @@ describe('Test daemon functionality', () => {
   });
 
   test('Test daemon initialization [2]', (done) => {
-    nock('http://127.0.0.1:42069')
+    nock('http://127.0.0.1:2332')
       .post('/', (body) => body.method === 'getpeerinfo')
       .reply(200, JSON.stringify({
         error: null,
         result: null,
         instance: 'nocktest',
       }));
-    nock('http://127.0.0.2:42069')
+    nock('http://127.0.0.2:2332')
       .post('/', (body) => body.method === 'getpeerinfo')
       .reply(200, JSON.stringify({
         error: null,
@@ -81,7 +81,7 @@ describe('Test daemon functionality', () => {
   });
 
   test('Test daemon initialization [3]', (done) => {
-    nock('http://127.0.0.1:42069')
+    nock('http://127.0.0.1:2332')
       .post('/', (body) => body.method === 'getpeerinfo')
       .reply(401, JSON.stringify({
         error: null,
@@ -98,14 +98,14 @@ describe('Test daemon functionality', () => {
 
   test('Test daemon commands [1]', (done) => {
     MockDate.set(1634742080841);
-    nock('http://127.0.0.1:42069')
+    nock('http://127.0.0.1:2332')
       .post('/', (body) => body.method === 'getpeerinfo')
       .reply(200, JSON.stringify({
         error: null,
         result: null,
         instance: 'nocktest',
       }));
-    nock('http://127.0.0.1:42069')
+    nock('http://127.0.0.1:2332')
       .post('/', (body) => body.method === 'getblocktemplate')
       .reply(200, JSON.stringify({
         error: null,
@@ -114,7 +114,7 @@ describe('Test daemon functionality', () => {
       }));
     const daemon = new Daemon(daemonsCopy);
     const requests = [['getblocktemplate', []]];
-    const expected = [{'data': '{"error":null,"result":null,"instance":"nocktest"}', 'error': null, 'instance': { 'host': '127.0.0.1', 'port': '42069', 'username': 'foundation', 'password': 'foundation', 'index': 0 }, 'response': null}];
+    const expected = [{'data': '{"error":null,"result":null,"instance":"nocktest"}', 'error': null, 'instance': { 'host': '127.0.0.1', 'port': '2332', 'username': 'foundation', 'password': 'foundation', 'index': 0 }, 'response': null}];
     daemon.checkInstances(() => {
       daemon.sendCommands(requests, false, (response) => {
         expect(response).toStrictEqual(expected);
@@ -125,14 +125,14 @@ describe('Test daemon functionality', () => {
 
   test('Test daemon commands [2]', (done) => {
     MockDate.set(1634742080841);
-    nock('http://127.0.0.1:42069')
+    nock('http://127.0.0.1:2332')
       .post('/', (body) => body.method === 'getpeerinfo')
       .reply(200, JSON.stringify({
         error: null,
         result: null,
         instance: 'nocktest',
       }));
-    nock('http://127.0.0.1:42069')
+    nock('http://127.0.0.1:2332')
       .post('/', (body) => body.method === 'getblocktemplate')
       .reply(200, JSON.stringify({
         error: null,
@@ -141,7 +141,7 @@ describe('Test daemon functionality', () => {
       }));
     const daemon = new Daemon(daemonsCopy);
     const requests = [['getblocktemplate', []]];
-    const expected = [{'data': '{"error":null,"result":null,"instance":"nocktest"}', 'error': null, 'instance': { 'host': '127.0.0.1', 'port': '42069', 'username': 'foundation', 'password': 'foundation', 'index': 0 }, 'response': null}];
+    const expected = [{'data': '{"error":null,"result":null,"instance":"nocktest"}', 'error': null, 'instance': { 'host': '127.0.0.1', 'port': '2332', 'username': 'foundation', 'password': 'foundation', 'index': 0 }, 'response': null}];
     daemon.checkInstances(() => {
       daemon.sendCommands(requests, false, (response) => {
         expect(response).toStrictEqual(expected);

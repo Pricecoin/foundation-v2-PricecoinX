@@ -65,7 +65,7 @@ config.primary.daemons = [];
 
 const daemons1 = {};
 daemons1.host = '127.0.0.1';
-daemons1.port = 42069;
+daemons1.port = 2332;
 daemons1.username = '';
 daemons1.password = '';
 config.primary.daemons.push(daemons1);
