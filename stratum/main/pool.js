@@ -324,7 +324,7 @@ const Pool = function(config, configMain, callback) {
   this.handlePrimaryTemplate = function(newBlock, newBroadcast, callback) {
 
     // Build Daemon Commands
-    const rules = ['segwit'];
+    const rules = ['mweb', 'segwit'];
     const capabilities = ['coinbasetxn', 'workid', 'coinbase/append'];
     const commands = [['getblocktemplate', [{ 'capabilities': capabilities, 'rules': rules }]]];
 
@@ -1191,7 +1191,7 @@ const Pool = function(config, configMain, callback) {
   this.setupPrimaryBlockchain = function(callback) {
 
     // Build Daemon Commands
-    const rules = ['segwit'];
+    const rules = ['mweb', 'segwit'];
     const capabilities = ['coinbasetxn', 'workid', 'coinbase/append'];
     const commands = [['getblocktemplate', [{ 'capabilities': capabilities, 'rules': rules }]]];
 
