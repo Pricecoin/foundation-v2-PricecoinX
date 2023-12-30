@@ -1,6 +1,6 @@
 /*
  *
- * Example (Garlicoin)
+ * Example (PricecoinX)
  *
  */
 
@@ -56,7 +56,7 @@ config.primary.address = '[address]';
 
 // Coin Configuration
 config.primary.coin = {};
-config.primary.coin.name = 'Garlicoin';
+config.primary.coin.name = 'PricecoinX';
 config.primary.coin.symbol = 'GRLC';
 config.primary.coin.algorithm = 'allium';
 
