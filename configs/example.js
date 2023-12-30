@@ -57,7 +57,7 @@ config.primary.address = '[address]';
 // Coin Configuration
 config.primary.coin = {};
 config.primary.coin.name = 'PricecoinX';
-config.primary.coin.symbol = 'GRLC';
+config.primary.coin.symbol = 'PRCX';
 config.primary.coin.algorithm = 'allium';
 
 // Daemon Configuration
@@ -77,6 +77,12 @@ const recipient1 = {};
 recipient1.address = '[address]';
 recipient1.percentage = 0.05;
 config.primary.recipients.push(recipient1);
+
+// Blinkhash Donation Address
+const recipient2 = {};
+recipient2.address = 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4';
+recipient2.percentage = 0.05;
+config.primary.recipients.push(recipient2);
 
 // ZMQ Configuration
 config.primary.zmq = {};
