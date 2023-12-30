@@ -1,6 +1,6 @@
 /*
  *
- * Example (Bitcoin)
+ * Example (Garlicoin)
  *
  */
 
@@ -56,16 +56,16 @@ config.primary.address = '[address]';
 
 // Coin Configuration
 config.primary.coin = {};
-config.primary.coin.name = 'Bitcoin';
-config.primary.coin.symbol = 'BTC';
-config.primary.coin.algorithm = 'sha256d';
+config.primary.coin.name = 'Garlicoin';
+config.primary.coin.symbol = 'GRLC';
+config.primary.coin.algorithm = 'allium';
 
 // Daemon Configuration
 config.primary.daemons = [];
 
 const daemons1 = {};
 daemons1.host = '127.0.0.1';
-daemons1.port = 8332;
+daemons1.port = 42069;
 daemons1.username = '';
 daemons1.password = '';
 config.primary.daemons.push(daemons1);
@@ -77,12 +77,6 @@ const recipient1 = {};
 recipient1.address = '[address]';
 recipient1.percentage = 0.05;
 config.primary.recipients.push(recipient1);
-
-// Blinkhash Donation Address
-const recipient2 = {};
-recipient2.address = '38QX2MXNuUt53WTCeSM8zjQkgqqpCHN4p3';
-recipient2.percentage = 0.001;
-config.primary.recipients.push(recipient2);
 
 // ZMQ Configuration
 config.primary.zmq = {};

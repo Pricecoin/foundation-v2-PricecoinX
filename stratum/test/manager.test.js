@@ -4,7 +4,7 @@ const configMain = require('../../configs/main');
 const events = require('events');
 const testdata = require('../../daemon/test/daemon.mock');
 
-config.primary.address = 'bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq';
+config.primary.address = 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR';
 config.primary.recipients = [];
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -100,9 +100,6 @@ describe('Test manager functionality', () => {
       extraNonce2: '00'.toString('hex'),
       nTime: 0,
       nonce: 0,
-      versionBit: '00000000',
-      versionMask: '1fffe000',
-      asicboost: true,
     };
     const client = mockClient();
     const response = manager.handleShare(1, client, submission);
@@ -118,9 +115,6 @@ describe('Test manager functionality', () => {
       extraNonce2: '00000000'.toString('hex'),
       nTime: 0,
       nonce: 0,
-      versionBit: '00000000',
-      versionMask: '1fffe000',
-      asicboost: true,
     };
     const client = mockClient();
     const response = manager.handleShare(0, client, submission);
@@ -136,9 +130,6 @@ describe('Test manager functionality', () => {
       extraNonce2: '00000000'.toString('hex'),
       nTime: '00'.toString('hex'),
       nonce: 0,
-      versionBit: '00000000',
-      versionMask: '1fffe000',
-      asicboost: true,
     };
     const client = mockClient();
     const response = manager.handleShare(1, client, submission);
@@ -154,9 +145,6 @@ describe('Test manager functionality', () => {
       extraNonce2: '00000000'.toString('hex'),
       nTime: '7036c54f'.toString('hex'),
       nonce: 0,
-      versionBit: '00000000',
-      versionMask: '1fffe000',
-      asicboost: true,
     };
     const client = mockClient();
     const response = manager.handleShare(1, client, submission);
@@ -172,9 +160,6 @@ describe('Test manager functionality', () => {
       extraNonce2: '00000000'.toString('hex'),
       nTime: '6036c54f'.toString('hex'),
       nonce: '00'.toString('hex'),
-      versionBit: '00000000',
-      versionMask: '1fffe000',
-      asicboost: true,
     };
     const client = mockClient();
     const response = manager.handleShare(1, client, submission);
@@ -190,9 +175,6 @@ describe('Test manager functionality', () => {
       extraNonce2: '00000000'.toString('hex'),
       nTime: '6036c54f'.toString('hex'),
       nonce: 'fe1a0000'.toString('hex'),
-      versionBit: '00000000',
-      versionMask: '1fffe000',
-      asicboost: true,
     };
     const client = mockClient();
     client.addrPrimary = null;
@@ -209,9 +191,6 @@ describe('Test manager functionality', () => {
       extraNonce2: '00000000'.toString('hex'),
       nTime: '6036c54f'.toString('hex'),
       nonce: 'fe1a0000'.toString('hex'),
-      versionBit: '00000000',
-      versionMask: '1fffe000',
-      asicboost: true,
     };
     const client = mockClient();
     manager.handleShare(1, client, submission);
@@ -228,14 +207,13 @@ describe('Test manager functionality', () => {
       extraNonce2: '00000000'.toString('hex'),
       nTime: '6036c54f'.toString('hex'),
       nonce: 'fe1a0000'.toString('hex'),
-      versionBit: '20000000',
-      versionMask: '1fffe000',
-      asicboost: true,
     };
     const client = mockClient();
+    client.previousDifficulty = 1;
+    client.difficulty = 1;
     const response = manager.handleShare(1, client, submission);
-    expect(response.error[0]).toBe(20);
-    expect(response.error[1]).toBe('invalid version bit');
+    expect(response.error[0]).toBe(23);
+    expect(response.error[1].slice(0, 23)).toBe('low difficulty share of');
   });
 
   test('Test share submission process [9]', () => {
@@ -246,29 +224,6 @@ describe('Test manager functionality', () => {
       extraNonce2: '00000000'.toString('hex'),
       nTime: '6036c54f'.toString('hex'),
       nonce: 'fe1a0000'.toString('hex'),
-      versionBit: '00000000',
-      versionMask: '1fffe000',
-      asicboost: true,
-    };
-    const client = mockClient();
-    client.previousDifficulty = 1;
-    client.difficulty = 1;
-    const response = manager.handleShare(1, client, submission);
-    expect(response.error[0]).toBe(23);
-    expect(response.error[1].slice(0, 23)).toBe('low difficulty share of');
-  });
-
-  test('Test share submission process [10]', () => {
-    const manager = new Manager(configCopy, configMainCopy);
-    manager.handleTemplate(rpcDataCopy, false);
-    const submission = {
-      extraNonce1: '00000001'.toString('hex'),
-      extraNonce2: '00000000'.toString('hex'),
-      nTime: '6036c54f'.toString('hex'),
-      nonce: 'fe1a0000'.toString('hex'),
-      versionBit: '00000000',
-      versionMask: '1fffe000',
-      asicboost: false,
     };
     const client = mockClient();
     client.previousDifficulty = 1;

@@ -68,14 +68,14 @@ const Loader = function(logger, configMain) {
   this.handleConfigs = function() {
     let config = null;
     const normalizedPath = path.join(__dirname, '../../configs/');
-    if (fs.existsSync(normalizedPath + 'bitcoin.js')) {
-      config = require(normalizedPath + 'bitcoin.js');
+    if (fs.existsSync(normalizedPath + 'garlicoin.js')) {
+      config = require(normalizedPath + 'garlicoin.js');
       if (!config.enabled) return;
       if (!_this.checkPoolDaemons(config)) return;
       if (!_this.checkPoolPorts(config)) return;
       if (!_this.checkPoolRecipients(config)) return;
     } else {
-      throw new Error('Unable to find bitcoin.js file. Read the installation/setup instructions');
+      throw new Error('Unable to find garlicoin.js file. Read the installation/setup instructions');
     }
     return config;
   };

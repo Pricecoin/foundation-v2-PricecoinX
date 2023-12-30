@@ -1,6 +1,6 @@
 {
-  "name": "foundation-v2-template",
-  "version": "0.0.1",
+  "name": "foundation-v2-garlicoin",
+  "version": "0.0.23",
   "description": "A high performance Stratum pool-server written in Node.js",
   "main": "./exports.js",
   "keywords": [
@@ -9,9 +9,9 @@
     "mining",
     "pool"
   ],
-  "homepage": "https://github.com/blinkhash/foundation-v2-template",
+  "homepage": "https://github.com/blinkhash/foundation-v2-garlicoin",
   "bugs": {
-    "url": "https://github.com/blinkhash/foundation-v2-template/issues"
+    "url": "https://github.com/blinkhash/foundation-v2-garlicoin/issues"
   },
   "license": "GPL-3.0",
   "author": {
@@ -39,7 +39,7 @@
   "contributors": [],
   "repository": {
     "type": "git",
-    "url": "https://github.com/blinkhash/foundation-v2-template.git"
+    "url": "https://github.com/blinkhash/foundation-v2-garlicoin.git"
   },
   "dependencies": {
     "async": "^3.2.3",

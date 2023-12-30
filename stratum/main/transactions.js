@@ -11,30 +11,30 @@ const Transactions = function(config, rpcData) {
 
   // Mainnet Configuration
   this.configMainnet = {
-    bech32: 'bc',
+    bech32: 'grlc',
     bip32: {
       public: Buffer.from('0488B21E', 'hex').readUInt32LE(0),
       private: Buffer.from('0488ADE4', 'hex').readUInt32LE(0),
     },
-    peerMagic: 'f9beb4d9',
-    pubKeyHash: Buffer.from('00', 'hex').readUInt8(0),
-    scriptHash: Buffer.from('05', 'hex').readUInt8(0),
+    peerMagic: 'd2c6b6db',
+    pubKeyHash: Buffer.from('26', 'hex').readUInt8(0),
+    scriptHash: Buffer.from('32', 'hex').readUInt8(0),
     wif: Buffer.from('80', 'hex').readUInt8(0),
-    coin: 'btc',
+    coin: 'grlc',
   };
 
   // Testnet Configuration
   this.configTestnet = {
-    bech32: 'tb',
+    bech32: 'tgrlc',
     bip32: {
       public: Buffer.from('043587CF', 'hex').readUInt32LE(0),
       private: Buffer.from('04358394', 'hex').readUInt32LE(0),
     },
-    peerMagic: '0b110907',
+    peerMagic: 'fdd2c8f2',
     pubKeyHash: Buffer.from('6F', 'hex').readUInt8(0),
-    scriptHash: Buffer.from('C4', 'hex').readUInt8(0),
+    scriptHash: Buffer.from('3A', 'hex').readUInt8(0),
     wif: Buffer.from('EF', 'hex').readUInt8(0),
-    coin: 'btc',
+    coin: 'grlc',
   };
 
   // Calculate Generation Transaction
