@@ -55,6 +55,10 @@ const Template = function(jobId, config, rpcData, placeholder) {
       utils.varIntBuffer(_this.rpcData.transactions.length + 1),
       coinbase,
       Buffer.concat(_this.rpcData.transactions.map((tx) => Buffer.from(tx.data, 'hex'))),
+      Buffer.concat(_this.rpcData.mweb ? [
+        Buffer.from([1]),
+        Buffer.from(_this.rpcData.mweb, 'hex')
+      ] : []),
     ]);
   };
 
