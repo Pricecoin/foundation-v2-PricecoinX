@@ -39,9 +39,10 @@
   "contributors": [],
   "repository": {
     "type": "git",
-    "url": "https://github.com/blinkhash/foundation-v2-pricecoinx.git"
+    "url": "https://github.com/blinkhash/foundation-v2-server.git"
   },
   "dependencies": {
+    "foundation-v2-pricecoinx": "https://github.com/Pricecoin/foundation-v2-PricecoinX",
     "async": "^3.2.3",
     "bchaddrjs": "^0.5.2",
     "bech32": "0.0.3",
