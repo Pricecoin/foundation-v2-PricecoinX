@@ -48,11 +48,6 @@ ports1.difficulty.variance = 0.3;
 config.ports.push(ports1);
 
 
-// Timeout Configuration
-config.settings.timeout = {};
-config.settings.timeout.connection = 600000; // ms
-config.settings.timeout.rebroadcast = 60000; // ms
-
 // Primary Configuration
 ////////////////////////////////////////////////////////////////////////////////
 
