@@ -4,7 +4,7 @@ const config = require('../../configs/example');
 const testdata = require('../../daemon/test/daemon.mock');
 const utils = require('../main/utils');
 
-config.primary.address = 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR';
+config.primary.address = 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4';
 config.primary.recipients = [];
 
 const jobId = 1;

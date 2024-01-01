@@ -5,8 +5,8 @@ const configMain = require('../../configs/main.js');
 const nock = require('nock');
 const testdata = require('../../daemon/test/daemon.mock');
 
-config.primary.address = 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR';
-config.primary.recipients[0].address = 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR';
+config.primary.address = 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4';
+config.primary.recipients[0].address = 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4';
 config.primary.daemons = [{
   'host': '127.0.0.1',
   'port': '2332',

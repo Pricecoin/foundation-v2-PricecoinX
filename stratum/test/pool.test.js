@@ -5,8 +5,8 @@ const events = require('events');
 const nock = require('nock');
 const testdata = require('../../daemon/test/daemon.mock');
 
-config.primary.address = 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR';
-config.primary.recipients[0].address = 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR';
+config.primary.address = 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4';
+config.primary.recipients[0].address = 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4';
 
 // Primary Payments Configuration
 const primaryPaymentsConfig = {
