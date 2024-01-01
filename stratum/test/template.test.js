@@ -84,6 +84,7 @@ describe('Test template functionality', () => {
   });
 
   test('Test block serialization [1]', () => {
+    delete rpcDataCopy.mweb;
     const template = new Template(jobId.toString(16), configCopy, rpcDataCopy, extraNonce);
     const headerBuffer = Buffer.from('00000020e22777bc309503ee6be3c65f370ba629b6497dbe8b804cbd8365ef83fbae1997afd031100bff85a9ac01f1718be0b3d6c20228592f0242ea1e4d91a519b530314fc53660f0ff0f1e00001afe', 'hex');
     const coinbase = Buffer.from('01000000010000000000000000000000000000000000000000000000000000000000000000ffffffff020101ffffffff0100f2052a010000001976a914614ca2f0f4baccdd63f45a0e0e0ff7ffb88041fb88ac00000000', 'hex');
