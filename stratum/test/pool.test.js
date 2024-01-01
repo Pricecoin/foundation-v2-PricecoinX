@@ -96,7 +96,7 @@ function mockSetupDaemons(pool, callback) {
 function mockSetupSettings(pool, callback) {
   nock('http://127.0.0.1:2332')
     .post('/').reply(200, JSON.stringify([
-      { id: 'nocktest', error: null, result: { isvalid: true, address: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR' }},
+      { id: 'nocktest', error: null, result: { isvalid: true, address: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4' }},
       { id: 'nocktest', error: null, result: { networkhashps: 0 }},
       { id: 'nocktest', error: null, result: { chain: 'main', difficulty: 0 }},
       { id: 'nocktest', error: null, result: { protocolversion: 1, connections: 1 }},
@@ -166,7 +166,7 @@ function mockClient() {
   const socket = mockSocket();
   const client = new events.EventEmitter();
   client.id = 'test';
-  client.addrPrimary = 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR';
+  client.addrPrimary = 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4';
   client.previousDifficulty = 0;
   client.difficulty = 1,
   client.extraNonce1 = 0,
@@ -257,13 +257,13 @@ describe('Test pool functionality', () => {
     mockSetupDaemons(pool, () => {
       nock('http://127.0.0.1:2332')
         .post('/').reply(200, JSON.stringify([
-          { id: 'nocktest', error: null, result: { isvalid: true, address: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR' }},
+          { id: 'nocktest', error: null, result: { isvalid: true, address: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4' }},
           { id: 'nocktest', error: null, result: { networkhashps: 0 }},
           { id: 'nocktest', error: null, result: { chain: 'main', difficulty: 0 }},
           { id: 'nocktest', error: null, result: { protocolversion: 1, connections: 1 }},
         ]));
       pool.setupSettings(() => {
-        expect(configCopy.primary.address).toBe('MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR');
+        expect(configCopy.primary.address).toBe('prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4');
         expect(pool.settings.testnet).toBe(false);
         expect(typeof pool.statistics).toBe('object');
         done();
@@ -283,7 +283,7 @@ describe('Test pool functionality', () => {
     mockSetupDaemons(pool, () => {
       nock('http://127.0.0.1:2332')
         .post('/').reply(200, JSON.stringify([
-          { id: 'nocktest', error: true, result: { isvalid: true, address: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR' }},
+          { id: 'nocktest', error: true, result: { isvalid: true, address: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4' }},
           { id: 'nocktest', error: null, result: { networkhashps: 0 }},
           { id: 'nocktest', error: null, result: { chain: 'main', difficulty: 0 }},
           { id: 'nocktest', error: null, result: { protocolversion: 1, connections: 1 }},
@@ -304,7 +304,7 @@ describe('Test pool functionality', () => {
     mockSetupDaemons(pool, () => {
       nock('http://127.0.0.1:2332')
         .post('/').reply(200, JSON.stringify([
-          { id: 'nocktest', error: null, result: { isvalid: false, address: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR' }},
+          { id: 'nocktest', error: null, result: { isvalid: false, address: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4' }},
           { id: 'nocktest', error: null, result: { networkhashps: 0 }},
           { id: 'nocktest', error: null, result: { chain: 'main', difficulty: 0 }},
           { id: 'nocktest', error: null, result: { protocolversion: 1, connections: 1 }},
@@ -318,13 +318,13 @@ describe('Test pool functionality', () => {
     mockSetupDaemons(pool, () => {
       nock('http://127.0.0.1:2332')
         .post('/').reply(200, JSON.stringify([
-          { id: 'nocktest', error: null, result: { isvalid: true, address: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR' }},
+          { id: 'nocktest', error: null, result: { isvalid: true, address: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4' }},
           { id: 'nocktest', error: null, result: { networkhashps: 0 }},
           { id: 'nocktest', error: null, result: { chain: 'main', difficulty: { 'proof-of-work': 8, 'proof-of-stake': 10 }}},
           { id: 'nocktest', error: null, result: { protocolversion: 1, connections: 1 }},
         ]));
       pool.setupSettings(() => {
-        expect(configCopy.primary.address).toBe('MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR');
+        expect(configCopy.primary.address).toBe('prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4');
         expect(pool.settings.testnet).toBe(false);
         expect(pool.statistics.difficulty).toBe(2048);
         done();
@@ -337,13 +337,13 @@ describe('Test pool functionality', () => {
     mockSetupDaemons(pool, () => {
       nock('http://127.0.0.1:2332')
         .post('/').reply(200, JSON.stringify([
-          { id: 'nocktest', error: null, result: { isvalid: true, address: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR' }},
+          { id: 'nocktest', error: null, result: { isvalid: true, address: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4' }},
           { id: 'nocktest', error: null, result: { networkhashps: 0 }},
           { id: 'nocktest', error: null, result: { chain: 'test', difficulty: { 'proof-of-work': 8, 'proof-of-stake': 10 }}},
           { id: 'nocktest', error: null, result: { protocolversion: 1, connections: 1 }},
         ]));
       pool.setupSettings(() => {
-        expect(configCopy.primary.address).toBe('MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR');
+        expect(configCopy.primary.address).toBe('prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4');
         expect(pool.settings.testnet).toBe(true);
         expect(pool.statistics.difficulty).toBe(2048);
         done();
@@ -1366,7 +1366,7 @@ describe('Test pool functionality', () => {
         if (response.length === 2) {
           pool.network.on('network.stopped', () => done());
           expect(response[1][0]).toBe('log');
-          expect(response[1][1]).toBe('Difficulty update queued for worker: MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR (8)');
+          expect(response[1][1]).toBe('Difficulty update queued for worker: prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4 (8)');
           pool.network.stopNetwork();
         }
       }
@@ -1402,7 +1402,7 @@ describe('Test pool functionality', () => {
           expect(response[0][0]).toBe('warning');
           expect(response[0][1]).toBe('Network difficulty (0) is lower than the difficulty on port 3002 (32)');
           expect(response[1][0]).toBe('log');
-          expect(response[1][1]).toBe('Difficulty updated successfully for worker: MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR (8)');
+          expect(response[1][1]).toBe('Difficulty updated successfully for worker: prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4 (8)');
           pool.network.stopNetwork();
         }
       }
@@ -1906,9 +1906,9 @@ describe('Test pool functionality', () => {
         .reply(200, JSON.stringify({
           id: 'nocktest',
           error: null,
-          result: { isvalid: true, address: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR' }
+          result: { isvalid: true, address: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4' }
         }));
-      pool.checkWorker(pool.primary.daemon, 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR', (valid) => {
+      pool.checkWorker(pool.primary.daemon, 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4', (valid) => {
         expect(valid).toBe(true);
         done();
       });
@@ -1923,9 +1923,9 @@ describe('Test pool functionality', () => {
         .reply(200, JSON.stringify({
           id: 'nocktest',
           error: null,
-          result: { isvalid: true, address: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR' }
+          result: { isvalid: true, address: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4' }
         }));
-      pool.checkWorker(pool.primary.daemon, 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker1', (valid) => {
+      pool.checkWorker(pool.primary.daemon, 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker1', (valid) => {
         expect(valid).toBe(true);
         done();
       });
@@ -1940,9 +1940,9 @@ describe('Test pool functionality', () => {
         .reply(200, JSON.stringify({
           id: 'nocktest',
           error: null,
-          result: { isvalid: true, address: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR' }
+          result: { isvalid: true, address: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4' }
         }));
-      pool.checkPrimaryWorker('0.0.0.0', 3001, 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR', (valid) => {
+      pool.checkPrimaryWorker('0.0.0.0', 3001, 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4', (valid) => {
         expect(valid).toBe(true);
         done();
       });
@@ -1957,9 +1957,9 @@ describe('Test pool functionality', () => {
         .reply(200, JSON.stringify({
           id: 'nocktest',
           error: null,
-          result: { isvalid: false, address: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR' }
+          result: { isvalid: false, address: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4' }
         }));
-      pool.checkPrimaryWorker('0.0.0.0', 3001, 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR', () => {}, (result) => {
+      pool.checkPrimaryWorker('0.0.0.0', 3001, 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4', () => {}, (result) => {
         expect(result).toStrictEqual({ 'error': null, 'authorized': false, 'disconnect': false });
         done();
       });
@@ -1976,7 +1976,7 @@ describe('Test pool functionality', () => {
           error: true,
           result: null
         }));
-      pool.checkPrimaryWorker('0.0.0.0', 3001, 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR', () => {}, (result) => {
+      pool.checkPrimaryWorker('0.0.0.0', 3001, 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4', () => {}, (result) => {
         expect(result).toStrictEqual({ 'error': null, 'authorized': false, 'disconnect': false });
         done();
       });
@@ -1993,9 +1993,9 @@ describe('Test pool functionality', () => {
         .reply(200, JSON.stringify({
           id: 'nocktest',
           error: null,
-          result: { isvalid: true, address: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR' }
+          result: { isvalid: true, address: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4' }
         }));
-      pool.checkAuxiliaryWorker('0.0.0.0', 3001, 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR', (valid) => {
+      pool.checkAuxiliaryWorker('0.0.0.0', 3001, 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4', (valid) => {
         expect(valid).toBe(true);
         done();
       });
@@ -2012,9 +2012,9 @@ describe('Test pool functionality', () => {
         .reply(200, JSON.stringify({
           id: 'nocktest',
           error: null,
-          result: { isvalid: false, address: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR' }
+          result: { isvalid: false, address: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4' }
         }));
-      pool.checkAuxiliaryWorker('0.0.0.0', 3001, 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR', () => {}, (result) => {
+      pool.checkAuxiliaryWorker('0.0.0.0', 3001, 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4', () => {}, (result) => {
         expect(result).toStrictEqual({ 'error': null, 'authorized': false, 'disconnect': false });
         done();
       });
@@ -2051,9 +2051,9 @@ describe('Test pool functionality', () => {
         .reply(200, JSON.stringify({
           id: 'nocktest',
           error: null,
-          result: { isvalid: true, address: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR' }
+          result: { isvalid: true, address: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4' }
         }));
-      pool.authorizeWorker('0.0.0.0', 3001, 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR', null, 'test', (result) => {
+      pool.authorizeWorker('0.0.0.0', 3001, 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4', null, 'test', (result) => {
         expect(result).toStrictEqual({ 'error': null, 'authorized': true, 'disconnect': false });
         done();
       });
@@ -2070,16 +2070,16 @@ describe('Test pool functionality', () => {
         .reply(200, JSON.stringify({
           id: 'nocktest',
           error: null,
-          result: { isvalid: true, address: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR' }
+          result: { isvalid: true, address: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4' }
         }));
       nock('http://127.0.0.1:42066')
         .post('/', (body) => body.method === 'validateaddress')
         .reply(200, JSON.stringify({
           id: 'nocktest',
           error: null,
-          result: { isvalid: true, address: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR' }
+          result: { isvalid: true, address: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4' }
         }));
-      pool.authorizeWorker('0.0.0.0', 3001, 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR', 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR', 'test', (result) => {
+      pool.authorizeWorker('0.0.0.0', 3001, 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4', 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4', 'test', (result) => {
         expect(result).toStrictEqual({ 'error': null, 'authorized': true, 'disconnect': false });
         done();
       });
@@ -2096,7 +2096,7 @@ describe('Test pool functionality', () => {
         .reply(200, JSON.stringify({
           id: 'nocktest',
           error: null,
-          result: { isvalid: true, address: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR' }
+          result: { isvalid: true, address: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4' }
         }));
       nock('http://127.0.0.1:42066')
         .post('/', (body) => body.method === 'validateaddress')
@@ -2105,7 +2105,7 @@ describe('Test pool functionality', () => {
           error: true,
           result: null
         }));
-      pool.authorizeWorker('0.0.0.0', 3001, 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR', 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR', 'test', (result) => {
+      pool.authorizeWorker('0.0.0.0', 3001, 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4', 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4', 'test', (result) => {
         expect(result).toStrictEqual({ 'error': null, 'authorized': false, 'disconnect': false });
         done();
       });
@@ -2449,8 +2449,8 @@ describe('Test pool functionality', () => {
     const blocks1 = {
       id: '1',
       timestamp: '1662753912672',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker1',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker1',
       category: 'immature',
       confirmations: 3,
       difficulty: 15.999771117945784,
@@ -2468,8 +2468,8 @@ describe('Test pool functionality', () => {
     const worker1 = {
       id: '2',
       timestamp: '1662737864590',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker4',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker4',
       identifier: 'master',
       invalid: 0,
       round: '15c8343c-9751-4c67-aafa-29ff296da484',
@@ -2480,7 +2480,7 @@ describe('Test pool functionality', () => {
       valid: 22,
       work: 29.489361720000005
     };
-    const expected = { 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR': { 'immature': 10000, 'generate': 0 }};
+    const expected = { 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4': { 'immature': 10000, 'generate': 0 }};
     pool.handlePrimaryWorkers([blocks1], [[worker1]], false, (results) => {
       expect(results).toStrictEqual(expected);
     });
@@ -2491,8 +2491,8 @@ describe('Test pool functionality', () => {
     const blocks1 = {
       id: '1',
       timestamp: '1662753912672',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker1',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker1',
       category: 'immature',
       confirmations: 3,
       difficulty: 15.999771117945784,
@@ -2510,8 +2510,8 @@ describe('Test pool functionality', () => {
     const worker1 = {
       id: '2',
       timestamp: '1662737864590',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker4',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker4',
       identifier: 'master',
       invalid: 0,
       round: '15c8343c-9751-4c67-aafa-29ff296da484',
@@ -2522,7 +2522,7 @@ describe('Test pool functionality', () => {
       valid: 22,
       work: 29.489361720000005
     };
-    const expected = { 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR': { 'generate': 0, 'immature': 20000 }};
+    const expected = { 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4': { 'generate': 0, 'immature': 20000 }};
     pool.handlePrimaryWorkers([blocks1, blocks1], [[worker1], [worker1]], false, (results) => {
       expect(results).toStrictEqual(expected);
     });
@@ -2533,8 +2533,8 @@ describe('Test pool functionality', () => {
     const blocks1 = {
       id: '1',
       timestamp: '1662753912672',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker1',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker1',
       category: 'immature',
       confirmations: 3,
       difficulty: 15.999771117945784,
@@ -2552,8 +2552,8 @@ describe('Test pool functionality', () => {
     const worker1 = {
       id: '2',
       timestamp: '1662737864590',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker4',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker4',
       identifier: 'master',
       invalid: 0,
       round: '15c8343c-9751-4c67-aafa-29ff296da484',
@@ -2568,7 +2568,7 @@ describe('Test pool functionality', () => {
     worker2.miner = 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjS';
     worker2.worker = 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjS.worker4';
     const expected = {
-      'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR': { 'immature': 5000, 'generate': 0 },
+      'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4': { 'immature': 5000, 'generate': 0 },
       'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjS': { 'immature': 5000, 'generate': 0 }};
     pool.handlePrimaryWorkers([blocks1], [[worker1, worker2]], false, (results) => {
       expect(results).toStrictEqual(expected);
@@ -2580,8 +2580,8 @@ describe('Test pool functionality', () => {
     const blocks1 = {
       id: '1',
       timestamp: '1662753912672',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker1',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker1',
       category: 'immature',
       confirmations: 3,
       difficulty: 15.999771117945784,
@@ -2599,8 +2599,8 @@ describe('Test pool functionality', () => {
     const worker1 = {
       id: '2',
       timestamp: '1662737864590',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker4',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker4',
       identifier: 'master',
       invalid: 0,
       round: '15c8343c-9751-4c67-aafa-29ff296da484',
@@ -2616,7 +2616,7 @@ describe('Test pool functionality', () => {
     worker2.worker = 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjS.worker4';
     worker2.times = 49.1;
     const expected = {
-      'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR': { 'immature': 8474.10994411, 'generate': 0 },
+      'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4': { 'immature': 8474.10994411, 'generate': 0 },
       'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjS': { 'immature': 1525.89005589, 'generate': 0 }};
     pool.handlePrimaryWorkers([blocks1], [[worker1, worker2]], false, (results) => {
       expect(results).toStrictEqual(expected);
@@ -2628,8 +2628,8 @@ describe('Test pool functionality', () => {
     const blocks1 = {
       id: '1',
       timestamp: '1662753912672',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker1',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker1',
       category: 'generate',
       confirmations: 3,
       difficulty: 15.999771117945784,
@@ -2647,8 +2647,8 @@ describe('Test pool functionality', () => {
     const worker1 = {
       id: '2',
       timestamp: '1662737864590',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker4',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker4',
       identifier: 'master',
       invalid: 0,
       round: '15c8343c-9751-4c67-aafa-29ff296da484',
@@ -2659,7 +2659,7 @@ describe('Test pool functionality', () => {
       valid: 22,
       work: 29.489361720000005
     };
-    const expected = { 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR': { 'generate': 10000, 'immature': 0 }};
+    const expected = { 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4': { 'generate': 10000, 'immature': 0 }};
     pool.handlePrimaryWorkers([blocks1], [[worker1]], false, (results) => {
       expect(results).toStrictEqual(expected);
     });
@@ -2670,8 +2670,8 @@ describe('Test pool functionality', () => {
     const blocks1 = {
       id: '1',
       timestamp: '1662753912672',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker1',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker1',
       category: 'generate',
       confirmations: 3,
       difficulty: 15.999771117945784,
@@ -2689,8 +2689,8 @@ describe('Test pool functionality', () => {
     const worker1 = {
       id: '2',
       timestamp: '1662737864590',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker4',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker4',
       identifier: 'master',
       invalid: 0,
       round: '15c8343c-9751-4c67-aafa-29ff296da484',
@@ -2701,7 +2701,7 @@ describe('Test pool functionality', () => {
       valid: 22,
       work: 29.489361720000005
     };
-    const expected = { 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR': { 'immature': 0, 'generate': 20000 }};
+    const expected = { 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4': { 'immature': 0, 'generate': 20000 }};
     pool.handlePrimaryWorkers([blocks1, blocks1], [[worker1], [worker1]], false, (results) => {
       expect(results).toStrictEqual(expected);
     });
@@ -2712,8 +2712,8 @@ describe('Test pool functionality', () => {
     const blocks1 = {
       id: '1',
       timestamp: '1662753912672',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker1',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker1',
       category: 'orphan',
       confirmations: 3,
       difficulty: 15.999771117945784,
@@ -2731,8 +2731,8 @@ describe('Test pool functionality', () => {
     const worker1 = {
       id: '2',
       timestamp: '1662737864590',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker4',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker4',
       identifier: 'master',
       invalid: 0,
       round: '15c8343c-9751-4c67-aafa-29ff296da484',
@@ -2753,8 +2753,8 @@ describe('Test pool functionality', () => {
     const blocks1 = {
       id: '1',
       timestamp: '1662753912672',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker1',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker1',
       category: 'orphan',
       confirmations: 3,
       difficulty: 15.999771117945784,
@@ -2772,8 +2772,8 @@ describe('Test pool functionality', () => {
     const worker1 = {
       id: '2',
       timestamp: '1662737864590',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker4',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker4',
       identifier: 'master',
       invalid: 0,
       round: '15c8343c-9751-4c67-aafa-29ff296da484',
@@ -2784,7 +2784,7 @@ describe('Test pool functionality', () => {
       valid: 22,
       work: 29.489361720000005
     };
-    const expected = { 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR': { 'immature': -10000, 'generate': 0 }};
+    const expected = { 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4': { 'immature': -10000, 'generate': 0 }};
     pool.handlePrimaryWorkers([blocks1], [[worker1]], false, (results) => {
       expect(results).toStrictEqual(expected);
     });
@@ -2795,8 +2795,8 @@ describe('Test pool functionality', () => {
     const blocks1 = {
       id: '1',
       timestamp: '1662753912672',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker1',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker1',
       category: 'orphan',
       confirmations: 3,
       difficulty: 15.999771117945784,
@@ -2814,8 +2814,8 @@ describe('Test pool functionality', () => {
     const worker1 = {
       id: '2',
       timestamp: '1662737864590',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker4',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker4',
       identifier: 'master',
       invalid: 0,
       round: '15c8343c-9751-4c67-aafa-29ff296da484',
@@ -2826,7 +2826,7 @@ describe('Test pool functionality', () => {
       valid: 22,
       work: 29.489361720000005
     };
-    const expected = { 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR': { 'immature': 0, 'generate': -10000 }};
+    const expected = { 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4': { 'immature': 0, 'generate': -10000 }};
     pool.handlePrimaryWorkers([blocks1], [[worker1]], false, (results) => {
       expect(results).toStrictEqual(expected);
     });
@@ -2837,8 +2837,8 @@ describe('Test pool functionality', () => {
     const blocks1 = {
       id: '1',
       timestamp: '1662753912672',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker1',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker1',
       category: 'pending',
       confirmations: 3,
       difficulty: 15.999771117945784,
@@ -2856,8 +2856,8 @@ describe('Test pool functionality', () => {
     const worker1 = {
       id: '2',
       timestamp: '1662737864590',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker4',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker4',
       identifier: 'master',
       invalid: 0,
       round: '15c8343c-9751-4c67-aafa-29ff296da484',
@@ -2878,8 +2878,8 @@ describe('Test pool functionality', () => {
     const blocks1 = {
       id: '1',
       timestamp: '1662753912672',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker1',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker1',
       category: 'immature',
       confirmations: 3,
       difficulty: 15.999771117945784,
@@ -2897,8 +2897,8 @@ describe('Test pool functionality', () => {
     const worker1 = {
       id: '2',
       timestamp: '1662737864590',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker4',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker4',
       identifier: 'master',
       invalid: 0,
       round: '15c8343c-9751-4c67-aafa-29ff296da484',
@@ -2919,8 +2919,8 @@ describe('Test pool functionality', () => {
     const blocks1 = {
       id: '1',
       timestamp: '1662753912672',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker1',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker1',
       category: 'immature',
       confirmations: 3,
       difficulty: 15.999771117945784,
@@ -2938,8 +2938,8 @@ describe('Test pool functionality', () => {
     const worker1 = {
       id: '2',
       timestamp: '1662737864590',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker4',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker4',
       identifier: 'master',
       invalid: 0,
       round: '15c8343c-9751-4c67-aafa-29ff296da484',
@@ -2956,7 +2956,7 @@ describe('Test pool functionality', () => {
     worker2.times = 49.1;
     worker2.work = 29.489361720000005;
     const expected = {
-      'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR': { 'immature': 9570.0056964, 'generate': 0 },
+      'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4': { 'immature': 9570.0056964, 'generate': 0 },
       'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjS': { 'immature': 429.9943036, 'generate': 0 }};
     pool.handlePrimaryWorkers([blocks1], [[worker1, worker2]], false, (results) => {
       expect(results).toStrictEqual(expected);
@@ -2968,8 +2968,8 @@ describe('Test pool functionality', () => {
     const blocks1 = {
       id: '1',
       timestamp: '1662753912672',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker1',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker1',
       category: 'generate',
       confirmations: 3,
       difficulty: 15.999771117945784,
@@ -2987,8 +2987,8 @@ describe('Test pool functionality', () => {
     const worker1 = {
       id: '2',
       timestamp: '1662737864590',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker4',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker4',
       identifier: 'master',
       invalid: 0,
       round: '15c8343c-9751-4c67-aafa-29ff296da484',
@@ -2999,7 +2999,7 @@ describe('Test pool functionality', () => {
       valid: 22,
       work: 29.489361720000005
     };
-    const expected = { 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR': { 'immature': 0, 'generate': 10000 }};
+    const expected = { 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4': { 'immature': 0, 'generate': 10000 }};
     pool.handlePrimaryWorkers([blocks1], [[worker1]], true, (results) => {
       expect(results).toStrictEqual(expected);
     });
@@ -3010,8 +3010,8 @@ describe('Test pool functionality', () => {
     const blocks1 = {
       id: '1',
       timestamp: '1662753912672',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker1',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker1',
       category: 'generate',
       confirmations: 3,
       difficulty: 15.999771117945784,
@@ -3029,8 +3029,8 @@ describe('Test pool functionality', () => {
     const worker1 = {
       id: '2',
       timestamp: '1662737864590',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker4',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker4',
       identifier: 'master',
       invalid: 0,
       round: '15c8343c-9751-4c67-aafa-29ff296da484',
@@ -3041,7 +3041,7 @@ describe('Test pool functionality', () => {
       valid: 22,
       work: 29.489361720000005
     };
-    const expected = { 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR': { 'immature': -10000, 'generate': 10000 }};
+    const expected = { 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4': { 'immature': -10000, 'generate': 10000 }};
     pool.handlePrimaryWorkers([blocks1], [[worker1]], true, (results) => {
       expect(results).toStrictEqual(expected);
     });
@@ -3052,8 +3052,8 @@ describe('Test pool functionality', () => {
     const blocks1 = {
       id: '1',
       timestamp: '1662753912672',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker1',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker1',
       category: 'immature',
       confirmations: 3,
       difficulty: 15.999771117945784,
@@ -3071,8 +3071,8 @@ describe('Test pool functionality', () => {
     const worker1 = {
       id: '2',
       timestamp: '1662737864590',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker4',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker4',
       identifier: 'master',
       invalid: 0,
       round: '15c8343c-9751-4c67-aafa-29ff296da484',
@@ -3083,7 +3083,7 @@ describe('Test pool functionality', () => {
       valid: 22,
       work: 29.489361720000005
     };
-    const expected = { 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR': { 'immature': 10000, 'generate': 0 }};
+    const expected = { 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4': { 'immature': 10000, 'generate': 0 }};
     pool.handleAuxiliaryWorkers([blocks1], [[worker1]], false, (results) => {
       expect(results).toStrictEqual(expected);
     });
@@ -3094,8 +3094,8 @@ describe('Test pool functionality', () => {
     const blocks1 = {
       id: '1',
       timestamp: '1662753912672',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker1',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker1',
       category: 'immature',
       confirmations: 3,
       difficulty: 15.999771117945784,
@@ -3113,8 +3113,8 @@ describe('Test pool functionality', () => {
     const worker1 = {
       id: '2',
       timestamp: '1662737864590',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker4',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker4',
       identifier: 'master',
       invalid: 0,
       round: '15c8343c-9751-4c67-aafa-29ff296da484',
@@ -3125,7 +3125,7 @@ describe('Test pool functionality', () => {
       valid: 22,
       work: 29.489361720000005
     };
-    const expected = { 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR': { 'generate': 0, 'immature': 20000 }};
+    const expected = { 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4': { 'generate': 0, 'immature': 20000 }};
     pool.handleAuxiliaryWorkers([blocks1, blocks1], [[worker1], [worker1]], false, (results) => {
       expect(results).toStrictEqual(expected);
     });
@@ -3136,8 +3136,8 @@ describe('Test pool functionality', () => {
     const blocks1 = {
       id: '1',
       timestamp: '1662753912672',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker1',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker1',
       category: 'immature',
       confirmations: 3,
       difficulty: 15.999771117945784,
@@ -3155,8 +3155,8 @@ describe('Test pool functionality', () => {
     const worker1 = {
       id: '2',
       timestamp: '1662737864590',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker4',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker4',
       identifier: 'master',
       invalid: 0,
       round: '15c8343c-9751-4c67-aafa-29ff296da484',
@@ -3171,7 +3171,7 @@ describe('Test pool functionality', () => {
     worker2.miner = 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjS';
     worker2.worker = 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjS.worker4';
     const expected = {
-      'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR': { 'immature': 5000, 'generate': 0 },
+      'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4': { 'immature': 5000, 'generate': 0 },
       'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjS': { 'immature': 5000, 'generate': 0 }};
     pool.handleAuxiliaryWorkers([blocks1], [[worker1, worker2]], false, (results) => {
       expect(results).toStrictEqual(expected);
@@ -3183,8 +3183,8 @@ describe('Test pool functionality', () => {
     const blocks1 = {
       id: '1',
       timestamp: '1662753912672',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker1',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker1',
       category: 'immature',
       confirmations: 3,
       difficulty: 15.999771117945784,
@@ -3202,8 +3202,8 @@ describe('Test pool functionality', () => {
     const worker1 = {
       id: '2',
       timestamp: '1662737864590',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker4',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker4',
       identifier: 'master',
       invalid: 0,
       round: '15c8343c-9751-4c67-aafa-29ff296da484',
@@ -3219,7 +3219,7 @@ describe('Test pool functionality', () => {
     worker2.worker = 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjS.worker4';
     worker2.times = 49.1;
     const expected = {
-      'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR': { 'immature': 8474.10994411, 'generate': 0 },
+      'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4': { 'immature': 8474.10994411, 'generate': 0 },
       'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjS': { 'immature': 1525.89005589, 'generate': 0 }};
     pool.handleAuxiliaryWorkers([blocks1], [[worker1, worker2]], false, (results) => {
       expect(results).toStrictEqual(expected);
@@ -3231,8 +3231,8 @@ describe('Test pool functionality', () => {
     const blocks1 = {
       id: '1',
       timestamp: '1662753912672',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker1',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker1',
       category: 'generate',
       confirmations: 3,
       difficulty: 15.999771117945784,
@@ -3250,8 +3250,8 @@ describe('Test pool functionality', () => {
     const worker1 = {
       id: '2',
       timestamp: '1662737864590',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker4',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker4',
       identifier: 'master',
       invalid: 0,
       round: '15c8343c-9751-4c67-aafa-29ff296da484',
@@ -3262,7 +3262,7 @@ describe('Test pool functionality', () => {
       valid: 22,
       work: 29.489361720000005
     };
-    const expected = { 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR': { 'generate': 10000, 'immature': 0 }};
+    const expected = { 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4': { 'generate': 10000, 'immature': 0 }};
     pool.handleAuxiliaryWorkers([blocks1], [[worker1]], false, (results) => {
       expect(results).toStrictEqual(expected);
     });
@@ -3273,8 +3273,8 @@ describe('Test pool functionality', () => {
     const blocks1 = {
       id: '1',
       timestamp: '1662753912672',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker1',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker1',
       category: 'generate',
       confirmations: 3,
       difficulty: 15.999771117945784,
@@ -3292,8 +3292,8 @@ describe('Test pool functionality', () => {
     const worker1 = {
       id: '2',
       timestamp: '1662737864590',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker4',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker4',
       identifier: 'master',
       invalid: 0,
       round: '15c8343c-9751-4c67-aafa-29ff296da484',
@@ -3304,7 +3304,7 @@ describe('Test pool functionality', () => {
       valid: 22,
       work: 29.489361720000005
     };
-    const expected = { 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR': { 'immature': 0, 'generate': 20000 }};
+    const expected = { 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4': { 'immature': 0, 'generate': 20000 }};
     pool.handleAuxiliaryWorkers([blocks1, blocks1], [[worker1], [worker1]], false, (results) => {
       expect(results).toStrictEqual(expected);
     });
@@ -3315,8 +3315,8 @@ describe('Test pool functionality', () => {
     const blocks1 = {
       id: '1',
       timestamp: '1662753912672',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker1',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker1',
       category: 'orphan',
       confirmations: 3,
       difficulty: 15.999771117945784,
@@ -3334,8 +3334,8 @@ describe('Test pool functionality', () => {
     const worker1 = {
       id: '2',
       timestamp: '1662737864590',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker4',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker4',
       identifier: 'master',
       invalid: 0,
       round: '15c8343c-9751-4c67-aafa-29ff296da484',
@@ -3356,8 +3356,8 @@ describe('Test pool functionality', () => {
     const blocks1 = {
       id: '1',
       timestamp: '1662753912672',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker1',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker1',
       category: 'orphan',
       confirmations: 3,
       difficulty: 15.999771117945784,
@@ -3375,8 +3375,8 @@ describe('Test pool functionality', () => {
     const worker1 = {
       id: '2',
       timestamp: '1662737864590',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker4',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker4',
       identifier: 'master',
       invalid: 0,
       round: '15c8343c-9751-4c67-aafa-29ff296da484',
@@ -3387,7 +3387,7 @@ describe('Test pool functionality', () => {
       valid: 22,
       work: 29.489361720000005
     };
-    const expected = { 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR': { 'immature': -10000, 'generate': 0 }};
+    const expected = { 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4': { 'immature': -10000, 'generate': 0 }};
     pool.handleAuxiliaryWorkers([blocks1], [[worker1]], false, (results) => {
       expect(results).toStrictEqual(expected);
     });
@@ -3398,8 +3398,8 @@ describe('Test pool functionality', () => {
     const blocks1 = {
       id: '1',
       timestamp: '1662753912672',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker1',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker1',
       category: 'orphan',
       confirmations: 3,
       difficulty: 15.999771117945784,
@@ -3417,8 +3417,8 @@ describe('Test pool functionality', () => {
     const worker1 = {
       id: '2',
       timestamp: '1662737864590',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker4',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker4',
       identifier: 'master',
       invalid: 0,
       round: '15c8343c-9751-4c67-aafa-29ff296da484',
@@ -3429,7 +3429,7 @@ describe('Test pool functionality', () => {
       valid: 22,
       work: 29.489361720000005
     };
-    const expected = { 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR': { 'immature': 0, 'generate': -10000 }};
+    const expected = { 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4': { 'immature': 0, 'generate': -10000 }};
     pool.handleAuxiliaryWorkers([blocks1], [[worker1]], false, (results) => {
       expect(results).toStrictEqual(expected);
     });
@@ -3440,8 +3440,8 @@ describe('Test pool functionality', () => {
     const blocks1 = {
       id: '1',
       timestamp: '1662753912672',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker1',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker1',
       category: 'pending',
       confirmations: 3,
       difficulty: 15.999771117945784,
@@ -3459,8 +3459,8 @@ describe('Test pool functionality', () => {
     const worker1 = {
       id: '2',
       timestamp: '1662737864590',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker4',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker4',
       identifier: 'master',
       invalid: 0,
       round: '15c8343c-9751-4c67-aafa-29ff296da484',
@@ -3481,8 +3481,8 @@ describe('Test pool functionality', () => {
     const blocks1 = {
       id: '1',
       timestamp: '1662753912672',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker1',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker1',
       category: 'immature',
       confirmations: 3,
       difficulty: 15.999771117945784,
@@ -3500,8 +3500,8 @@ describe('Test pool functionality', () => {
     const worker1 = {
       id: '2',
       timestamp: '1662737864590',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker4',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker4',
       identifier: 'master',
       invalid: 0,
       round: '15c8343c-9751-4c67-aafa-29ff296da484',
@@ -3522,8 +3522,8 @@ describe('Test pool functionality', () => {
     const blocks1 = {
       id: '1',
       timestamp: '1662753912672',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker1',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker1',
       category: 'immature',
       confirmations: 3,
       difficulty: 15.999771117945784,
@@ -3541,8 +3541,8 @@ describe('Test pool functionality', () => {
     const worker1 = {
       id: '2',
       timestamp: '1662737864590',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker4',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker4',
       identifier: 'master',
       invalid: 0,
       round: '15c8343c-9751-4c67-aafa-29ff296da484',
@@ -3559,7 +3559,7 @@ describe('Test pool functionality', () => {
     worker2.times = 49.1;
     worker2.work = 29.489361720000005;
     const expected = {
-      'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR': { 'immature': 9570.0056964, 'generate': 0 },
+      'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4': { 'immature': 9570.0056964, 'generate': 0 },
       'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjS': { 'immature': 429.9943036, 'generate': 0 }};
     pool.handleAuxiliaryWorkers([blocks1], [[worker1, worker2]], false, (results) => {
       expect(results).toStrictEqual(expected);
@@ -3571,8 +3571,8 @@ describe('Test pool functionality', () => {
     const blocks1 = {
       id: '1',
       timestamp: '1662753912672',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker1',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker1',
       category: 'generate',
       confirmations: 3,
       difficulty: 15.999771117945784,
@@ -3590,8 +3590,8 @@ describe('Test pool functionality', () => {
     const worker1 = {
       id: '2',
       timestamp: '1662737864590',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker4',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker4',
       identifier: 'master',
       invalid: 0,
       round: '15c8343c-9751-4c67-aafa-29ff296da484',
@@ -3602,7 +3602,7 @@ describe('Test pool functionality', () => {
       valid: 22,
       work: 29.489361720000005
     };
-    const expected = { 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR': { 'immature': 0, 'generate': 10000 }};
+    const expected = { 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4': { 'immature': 0, 'generate': 10000 }};
     pool.handleAuxiliaryWorkers([blocks1], [[worker1]], true, (results) => {
       expect(results).toStrictEqual(expected);
     });
@@ -3613,8 +3613,8 @@ describe('Test pool functionality', () => {
     const blocks1 = {
       id: '1',
       timestamp: '1662753912672',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker1',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker1',
       category: 'generate',
       confirmations: 3,
       difficulty: 15.999771117945784,
@@ -3632,8 +3632,8 @@ describe('Test pool functionality', () => {
     const worker1 = {
       id: '2',
       timestamp: '1662737864590',
-      miner: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR',
-      worker: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR.worker4',
+      miner: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4',
+      worker: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4.worker4',
       identifier: 'master',
       invalid: 0,
       round: '15c8343c-9751-4c67-aafa-29ff296da484',
@@ -3644,7 +3644,7 @@ describe('Test pool functionality', () => {
       valid: 22,
       work: 29.489361720000005
     };
-    const expected = { 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR': { 'immature': -10000, 'generate': 10000 }};
+    const expected = { 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4': { 'immature': -10000, 'generate': 10000 }};
     pool.handleAuxiliaryWorkers([blocks1], [[worker1]], true, (results) => {
       expect(results).toStrictEqual(expected);
     });

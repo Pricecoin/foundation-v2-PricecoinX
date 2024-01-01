@@ -62,7 +62,7 @@ describe('Test stratum functionality', () => {
       }));
     nock('http://127.0.0.1:2332')
       .post('/').reply(200, JSON.stringify([
-        { id: 'nocktest', error: null, result: { isvalid: true, address: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR' }},
+        { id: 'nocktest', error: null, result: { isvalid: true, address: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4' }},
         { id: 'nocktest', error: null, result: { networkhashps: 0 }},
         { id: 'nocktest', error: null, result: { chain: 'main', difficulty: 0 }},
         { id: 'nocktest', error: null, result: { protocolversion: 1, connections: 1 }},
@@ -103,7 +103,7 @@ describe('Test stratum functionality', () => {
       }));
     nock('http://127.0.0.1:2332')
       .post('/').reply(200, JSON.stringify([
-        { id: 'nocktest', error: null, result: { isvalid: true, address: 'MJXo3Yipi2UoZCxqhPZeWAe3tTnxMRrxjR' }},
+        { id: 'nocktest', error: null, result: { isvalid: true, address: 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4' }},
         { id: 'nocktest', error: null, result: { networkhashps: 0 }},
         { id: 'nocktest', error: null, result: { chain: 'main', difficulty: 0 }},
         { id: 'nocktest', error: null, result: { protocolversion: 1, connections: 1 }},
