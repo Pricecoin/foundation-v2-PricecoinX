@@ -23,19 +23,19 @@ const Transactions = function(config, rpcData) {
     coin: 'prcx',
   };
 
-  // // Testnet Configuration
-  // this.configTestnet = {
-  //   bech32: 'tgrlc',
-  //   bip32: {
-  //     public: Buffer.from('043587CF', 'hex').readUInt32LE(0),
-  //     private: Buffer.from('04358394', 'hex').readUInt32LE(0),
-  //   },
-  //   peerMagic: 'fdd2c8f2',
-  //   pubKeyHash: Buffer.from('6F', 'hex').readUInt8(0),
-  //   scriptHash: Buffer.from('3A', 'hex').readUInt8(0),
-  //   wif: Buffer.from('EF', 'hex').readUInt8(0),
-  //   coin: 'grlc',
-  // };
+// Testnet Configuration
+this.configTestnet = {
+   bech32: 'tprc',
+   bip32: {
+     public: Buffer.from('043587CF', 'hex').readUInt32LE(0),
+     private: Buffer.from('04358394', 'hex').readUInt32LE(0),
+   },
+   peerMagic: 'afb2f7b9',
+   pubKeyHash: Buffer.from('6F', 'hex').readUInt8(0),
+   scriptHash: Buffer.from('C4', 'hex').readUInt8(0),
+   wif: Buffer.from('EF', 'hex').readUInt8(0),
+   coin: 'prcx',
+ };
 
   // Calculate Generation Transaction
   this.handleGeneration = function(placeholder) {
