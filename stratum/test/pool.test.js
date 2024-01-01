@@ -472,7 +472,7 @@ describe('Test pool functionality', () => {
           headerDiff: null,
           height: 1,
           identifier: 'master',
-          reward: 5000000000,
+          reward: 314436400,
           shareDiff: 1,
         };
         const auxShareData = {
@@ -534,7 +534,7 @@ describe('Test pool functionality', () => {
           headerDiff: null,
           height: 1,
           identifier: 'master',
-          reward: 5000000000,
+          reward: 314436400,
           shareDiff: 1,
         };
         const auxShareData = {
@@ -619,7 +619,7 @@ describe('Test pool functionality', () => {
           headerDiff: null,
           height: 1,
           identifier: 'master',
-          reward: 5000000000,
+          reward: 314436400,
           shareDiff: 1,
         };
         const auxShareData = {
@@ -702,7 +702,7 @@ describe('Test pool functionality', () => {
           headerDiff: null,
           height: 1,
           identifier: 'master',
-          reward: 5000000000,
+          reward: 314436400,
           shareDiff: 1,
         };
         const auxShareData = {
@@ -2522,7 +2522,7 @@ describe('Test pool functionality', () => {
       valid: 22,
       work: 29.489361720000005
     };
-    const expected = { 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4': { 'generate': 0, 'immature': 20000 }};
+    const expected = { 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4': { 'generate': 0, 'immature': 80000 }};
     pool.handlePrimaryWorkers([blocks1, blocks1], [[worker1], [worker1]], false, (results) => {
       expect(results).toStrictEqual(expected);
     });
@@ -2701,7 +2701,7 @@ describe('Test pool functionality', () => {
       valid: 22,
       work: 29.489361720000005
     };
-    const expected = { 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4': { 'immature': 0, 'generate': 20000 }};
+    const expected = { 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4': { 'immature': 0, 'generate': 80000 }};
     pool.handlePrimaryWorkers([blocks1, blocks1], [[worker1], [worker1]], false, (results) => {
       expect(results).toStrictEqual(expected);
     });
@@ -3125,7 +3125,7 @@ describe('Test pool functionality', () => {
       valid: 22,
       work: 29.489361720000005
     };
-    const expected = { 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4': { 'generate': 0, 'immature': 20000 }};
+    const expected = { 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4': { 'generate': 0, 'immature': 80000 }};
     pool.handleAuxiliaryWorkers([blocks1, blocks1], [[worker1], [worker1]], false, (results) => {
       expect(results).toStrictEqual(expected);
     });
@@ -3304,7 +3304,7 @@ describe('Test pool functionality', () => {
       valid: 22,
       work: 29.489361720000005
     };
-    const expected = { 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4': { 'immature': 0, 'generate': 20000 }};
+    const expected = { 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4': { 'immature': 0, 'generate': 80000 }};
     pool.handleAuxiliaryWorkers([blocks1, blocks1], [[worker1], [worker1]], false, (results) => {
       expect(results).toStrictEqual(expected);
     });

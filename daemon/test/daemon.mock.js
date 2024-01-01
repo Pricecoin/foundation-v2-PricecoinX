@@ -8,27 +8,27 @@ exports.getBlockTemplate = function() {
     'rules': [],
     'vbavailable': {},
     'vbrequired': 0,
-    'previousblockhash': '9719aefb83ef6583bd4c808bbe7d49b629a60b375fc6e36bee039530bc7727e2',
+    'previousblockhash': 'f207dec8aa1a591a4d8876f41195fab638c80ae8f87073e11c4235059872c078',
     'transactions': [],
     'coinbaseaux': {
       'flags': ''
     },
-    'coinbasevalue': 5000000000,
-    'longpollid': '9719aefb83ef6583bd4c808bbe7d49b629a60b375fc6e36bee039530bc7727e22',
-    'target': '00000ffff0000000000000000000000000000000000000000000000000000000',
-    'mintime': 1614044921,
+    'coinbasevalue': 314436400,
+    'longpollid': 'f207dec8aa1a591a4d8876f41195fab638c80ae8f87073e11c4235059872c078109',
+    'target': '00000002ffee0000000000000000000000000000000000000000000000000000',
+    'mintime': 1704142260,
     'mutable': [
       'time',
       'transactions',
       'prevblock'
     ],
     'noncerange': '00000000ffffffff',
-    'sigoplimit': 20000,
-    'sizelimit': 1000000,
-    'curtime': 1614201893,
-    'bits': '1e0ffff0',
-    'height': 1,
-    'default_witness_commitment': '6a24aa21a9ede2f61c3f71d1defd3fa999dfa36953755c690689799962b48bebd836974e8cf9',
+    'sigoplimit': 80000,
+    'sizelimit': 4000000,
+    'curtime': 1704142569,
+    'bits': '1d02ffee',
+    'height': 3787022,
+    'default_witness_commitment': '6a24aa21a9ed079f92ca4b685d1245bb01aed136e26f24e5ab77faba2abd696f4bdcc1c6181d',
     'mweb': '808fe9194db5a2d357d731b56aaf099553c7a3d4c88739e859876a60827fc9057c6f8254000000000000000000000000000000000000000000000000000000000000000096a703ee6d9d57e2d0b2766b1e534412fbdcc28ceb658f66dbe709af11b098a23aee8f32c489b3e9ae2ea8c7183db8f9cde5cce9bb954224956affce8858e0c100000000000000000000000000000000000000000000000000000000000000009b2700000000'
   };
 };
@@ -37,9 +37,9 @@ exports.getBlockTemplate = function() {
 exports.getAuxBlock = function() {
   return {
     'chainid': 1,
-    'height': 1,
+    'height': 3787022,
     'hash': '8719aefb83ef6583bd4c808bbe7d49b629a60b375fc6e36bee039530bc7727e2',
-    'target': Buffer.from('00000ffff0000000000000000000000000000000000000000000000000000000', 'hex'),
+    'target': Buffer.from('00000002ffee0000000000000000000000000000000000000000000000000000', 'hex'),
   };
 };
 

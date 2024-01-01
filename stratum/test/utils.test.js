@@ -37,11 +37,11 @@ describe('Test utility functionality', () => {
   });
 
   test('Test implemented bigIntFromBitsBuffer', () => {
-    expect(Number(utils.bigIntFromBitsBuffer(Buffer.from('1e0ffff0', 'hex'))).toFixed(9)).toBe('1.1042625655198232e+71');
+    expect(Number(utils.bigIntFromBitsBuffer(Buffer.from('1d02ffee', 'hex'))).toFixed(9)).toBe('1.1042625655198232e+71');
   });
 
   test('Test implemented bigIntFromBitsHex', () => {
-    expect(Number(utils.bigIntFromBitsHex('1e0ffff0')).toFixed(9)).toBe('1.1042625655198232e+71');
+    expect(Number(utils.bigIntFromBitsHex('1d02ffee')).toFixed(9)).toBe('1.1042625655198232e+71');
   });
 
   test('Test implemented convertHashToBuffer', () => {
@@ -223,17 +223,17 @@ describe('Test utility functionality', () => {
   });
 
   test('Test implemented reverseBuffer', () => {
-    const buffer = utils.reverseBuffer(Buffer.from('9719aefb83ef6583bd4c808bbe7d49b629a60b375fc6e36bee039530bc7727e2', 'hex'));
+    const buffer = utils.reverseBuffer(Buffer.from('f207dec8aa1a591a4d8876f41195fab638c80ae8f87073e11c4235059872c078', 'hex'));
     expect(buffer).toStrictEqual(Buffer.from('e22777bc309503ee6be3c65f370ba629b6497dbe8b804cbd8365ef83fbae1997', 'hex'));
   });
 
   test('Test implemented reverseByteOrder', () => {
-    const buffer = utils.reverseByteOrder(Buffer.from('9719aefb83ef6583bd4c808bbe7d49b629a60b375fc6e36bee039530bc7727e2', 'hex'));
+    const buffer = utils.reverseByteOrder(Buffer.from('f207dec8aa1a591a4d8876f41195fab638c80ae8f87073e11c4235059872c078', 'hex'));
     expect(buffer).toStrictEqual(Buffer.from('bc7727e2ee0395305fc6e36b29a60b37be7d49b6bd4c808b83ef65839719aefb', 'hex'));
   });
 
   test('Test implemented reverseHex', () => {
-    const buffer = utils.reverseHex('9719aefb83ef6583bd4c808bbe7d49b629a60b375fc6e36bee039530bc7727e2', 'hex');
+    const buffer = utils.reverseHex('f207dec8aa1a591a4d8876f41195fab638c80ae8f87073e11c4235059872c078', 'hex');
     expect(buffer).toStrictEqual('e22777bc309503ee6be3c65f370ba629b6497dbe8b804cbd8365ef83fbae1997');
   });
 
@@ -248,17 +248,17 @@ describe('Test utility functionality', () => {
   });
 
   test('Test implemented sha256', () => {
-    const buffer = Buffer.from('9719aefb83ef6583bd4c808bbe7d49b629a60b375fc6e36bee039530bc7727e2', 'hex');
+    const buffer = Buffer.from('f207dec8aa1a591a4d8876f41195fab638c80ae8f87073e11c4235059872c078', 'hex');
     expect(utils.sha256(buffer)).toStrictEqual(Buffer.from('e7f3a916fd573c459e0aedb2429ba7fa6c46eee2adc3769d6ed043c87798e8e7', 'hex'));
   });
 
   test('Test implemented sha256d', () => {
-    const buffer = Buffer.from('9719aefb83ef6583bd4c808bbe7d49b629a60b375fc6e36bee039530bc7727e2', 'hex');
+    const buffer = Buffer.from('f207dec8aa1a591a4d8876f41195fab638c80ae8f87073e11c4235059872c078', 'hex');
     expect(utils.sha256d(buffer)).toStrictEqual(Buffer.from('0822da4833efcf7ea1d780c670eb47e255ed60ce42ab609eadb39f02effb580d', 'hex'));
   });
 
   test('Test implemented uint256BufferFromHash', () => {
-    const buffer = Buffer.from('9719aefb83ef6583bd4c808bbe7d49b629a60b375fc6e36bee039530bc7727e2', 'hex');
+    const buffer = Buffer.from('f207dec8aa1a591a4d8876f41195fab638c80ae8f87073e11c4235059872c078', 'hex');
     expect(utils.uint256BufferFromHash(buffer)).toStrictEqual(Buffer.from('e22777bc309503ee6be3c65f370ba629b6497dbe8b804cbd8365ef83fbae1997', 'hex'));
   });
 
