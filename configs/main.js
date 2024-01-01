@@ -27,12 +27,7 @@ config.tls = {};
 config.tls.ca = '';
 config.tls.key = '';
 config.tls.cert = '';
-// Banning Configuration
-config.settings.banning = {};
-config.settings.banning.banLength = 600000; // ms;
-config.settings.banning.checkThreshold = 500;
-config.settings.banning.invalidPercent = 50;
-config.settings.banning.purgeInterval = 300000; // ms;
+
 
 // Timeout Configuration
 config.settings.timeout = {};
