@@ -28,16 +28,6 @@ config.tls.ca = '';
 config.tls.key = '';
 config.tls.cert = '';
 
-
-// Timeout Configuration
-config.settings.timeout = {};
-config.settings.timeout.connection = 600000; // ms
-config.settings.timeout.rebroadcast = 60000; // ms
-
-// Interval Configuration
-config.settings.interval = {};
-config.settings.interval.blocks = 1000; // ms
-
 // Shared Configuration
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -62,7 +52,7 @@ config.ports.push(ports1);
 
 // Miscellaneous Configuration
 config.primary = {};
-config.primary.address = '[address]';
+config.primary.address = 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4';
 
 // Coin Configuration
 config.primary.coin = {};
@@ -84,7 +74,7 @@ config.primary.daemons.push(daemons1);
 config.primary.recipients = [];
 
 const recipient1 = {};
-recipient1.address = '[address]';
+recipient1.address = 'prc1q2uwz7rsaz2n9wnhs3sdyvjumrcad98ljjuq0w4';
 recipient1.percentage = 0.05;
 config.primary.recipients.push(recipient1);
 
