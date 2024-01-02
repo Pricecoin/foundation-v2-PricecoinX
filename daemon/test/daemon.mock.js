@@ -1,9 +1,6 @@
 // Mock Daemon GetBlockTemplate Data
 exports.getBlockTemplate = function() {
-  return 
-  20:36:16
-  ￼
-  {
+  return {
     "capabilities": [
       "proposal"
     ],
@@ -15,7 +12,7 @@ exports.getBlockTemplate = function() {
     "vbavailable": {
     },
     "vbrequired": 0,
-    "previousblockhash": "f68f5e34600f2c2504dd30aa9628546b0a22544b5e2041383549c7907d6e57c4",
+    "previousblockhash": "986627bf4667bb60441ae6ef3b7ac9ef1a68228d63d3cca6899100c30602733c",
     "transactions": [
       {
         "data": "02000000000101d874926724c38a1cf15086289d0c3d96ea258bf1dae2671d1e76d50d8a8fda9900000000171600145b6a9270eb2133b8e98472f3ade9baabe81fcd9cfeffffff020010a5d4e80000001976a914859a9553a769d09ed88d60d977228270a405e67888ac51e809701818000017a91470af957cf2ba564e7b5f27c9f3b4132165238703870247304402202e9a7ea56168b3d38e5bd2e2e4dfbd1d3ca79113fd175a60cb29825f692435800220218cd73410c9fdfad93264877ebd3366f01c2bf656c3d8718bdff12e4c2cb0eb0121039d5d2e4fdcae969b11cf27234be200d47283afec6e537f88e0018289d3f5779bbf5e3900",
@@ -41,9 +38,9 @@ exports.getBlockTemplate = function() {
     "coinbaseaux": {
     },
     "coinbasevalue": 314436400,
-    "longpollid": "f68f5e34600f2c2504dd30aa9628546b0a22544b5e2041383549c7907d6e57c480",
-    "target": "00000001cab50000000000000000000000000000000000000000000000000000",
-    "mintime": 1704162787,
+    "longpollid": "986627bf4667bb60441ae6ef3b7ac9ef1a68228d63d3cca6899100c30602733c99",
+    "target": "000000023ba10000000000000000000000000000000000000000000000000000",
+    "mintime": 1704163634,
     "mutable": [
       "time",
       "transactions",
@@ -53,9 +50,9 @@ exports.getBlockTemplate = function() {
     "sigoplimit": 80000,
     "sizelimit": 4000000,
     "weightlimit": 4000000,
-    "curtime": 1704162976,
-    "bits": "1d01cab5",
-    "height": 3787702,
+    "curtime": 1704163849,
+    "bits": "1d023ba1",
+    "height": 3787721,
     "default_witness_commitment": "6a24aa21a9ed079f92ca4b685d1245bb01aed136e26f24e5ab77faba2abd696f4bdcc1c6181d"
   };
 };
